@@ -6,10 +6,12 @@ export async function GET(request: NextRequest) {
   const { prisma } = getPrismaClient();
   try {
     const findMovies = await prisma.movie.findMany();
-
-    return findMovies && NextResponse.json(findMovies);
+    return NextResponse.json(findMovies); // 명시적으로 응답 반환
   } catch (error) {
     console.error(error);
-    NextResponse.json({ message: "Internal server error" });
+    return NextResponse.json(
+      { message: "Internal server error" },
+      { status: 500 },
+    ); // 응답 반환
   }
 }

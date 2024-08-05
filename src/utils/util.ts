@@ -23,7 +23,7 @@ export function distance(
   lon1: number,
   lat2: number,
   lon2: number,
-  dis: number
+  dis: number,
 ) {
   const R = 6371; // 지구 반지름 (단위: km)
   const dLat = deg2rad(lat2 - lat1);
