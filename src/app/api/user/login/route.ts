@@ -3,7 +3,7 @@ import { PrismaClient } from "@prisma/client";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(request: NextRequest) {
-  const SERECT_KEY = process.env.TOKEN_SECRET_KEY;
+  const SECRET_KEY = process.env.TOKEN_SECRET_KEY;
   const jwt = require("jsonwebtoken");
   const { prisma } = getPrismaClient();
   const reqUser = await request.json();
@@ -44,7 +44,7 @@ export async function POST(request: NextRequest) {
       expiresIn: "1h",
     };
 
-    const token = jwt.sign(payload, SERECT_KEY, option);
+    const token = jwt.sign(payload, SECRET_KEY, option);
     console.log(token);
 
     return (

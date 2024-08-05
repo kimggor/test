@@ -13,15 +13,18 @@ export async function POST(request: NextRequest) {
     updatedAt: undefined,
     deletedAt: undefined,
   };
+
   try {
     const { prisma } = getPrismaClient();
-
     const createUser = await prisma.user.create({ data: newUser });
 
-    return createUser && NextResponse.json(createUser);
+    return NextResponse.json(createUser, { status: 201 }); // 명시적으로 201 상태 반환
   } catch (error) {
     console.error(error);
-    NextResponse.json({ message: "Internal server error" });
+    return NextResponse.json(
+      { message: "Internal server error" },
+      { status: 500 },
+    );
   }
 }
 
@@ -29,17 +32,20 @@ export async function PUT(request: NextRequest) {
   console.log("test");
   const { id } = await request.json();
   console.log(id);
+
   try {
     const { prisma } = getPrismaClient();
-
     const deleteUser = await prisma.user.update({
       data: { deletedAt: new Date() },
       where: { id: Number(id) },
     });
 
-    return deleteUser && NextResponse.json(deleteUser);
+    return NextResponse.json(deleteUser, { status: 200 }); // 명시적으로 200 상태 반환
   } catch (error) {
     console.error(error);
-    NextResponse.json({ message: "Internal server error" });
+    return NextResponse.json(
+      { message: "Internal server error" },
+      { status: 500 },
+    );
   }
 }
