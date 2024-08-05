@@ -32,7 +32,7 @@ export default function SignUpContainer() {
       email: sighUpForm.email,
     };
     axios
-      .post(`${process.env.NEXT_PUBLIC_API_URL}api/user`, reqUser)
+      .post(`${process.env.NEXT_PUBLIC_LOCAL_URL}/api/user`, reqUser)
       .then((res) => {
         console.log(res.status);
         if (res.status === 200) setLoginSuccess(true);
