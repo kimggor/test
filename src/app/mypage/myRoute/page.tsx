@@ -100,8 +100,8 @@ export default function MyRoute() {
       const { lat, lng } = route; //선택한 여행지 경로
       const { latitude, longitude } = location; //내 현재 위치
 
-      // const isSuccess = distance(lat, lng, latitude, longitude, 10);
-      const isSuccess = distance(lat, lng, 37.567465, 126.8854, 10);
+      const isSuccess = distance(lat, lng, latitude, longitude, 10);
+      // const isSuccess = distance(lat, lng, 37.567465, 126.8854, 10);
 
       if (isSuccess) {
         setIsLoading(true);
@@ -115,7 +115,7 @@ export default function MyRoute() {
             `${
               process.env.NEXT_PUBLIC_LOCAL_URL
             }/api/content/${decodeURIComponent(selectTitle)}`,
-            updateData
+            updateData,
           )
           .then((res) => {
             if (res.data.code === 403) {

@@ -8,12 +8,12 @@ export default function Choice() {
   return (
     <div className="w-full h-full flex flex-col items-center min-w-[320px] lg:min-w-[1920px]">
       <Divider />
-      <div className="w-full flex flex-col items-center justify-center mt-6 lg:mt-[45px] lg:flex-row lg:gap-[305px]">
+      <div className="w-full h-full flex flex-col items-center justify-start gap-20 mt-6 lg:flex-row lg:gap-[305px] lg:mt-[45px] lg:items-start lg:justify-center">
         <Link
           href={"movies"}
-          className="flex flex-col items-center gap-4 lg:gap-10 cursor-pointer mb-6 lg:mb-0"
+          className="flex flex-col items-center gap-4 cursor-pointer mb-6 lg:gap-10 lg:mb-0 lg:mr-[152.5px] lg:first:mr-0 lg:last:ml-0"
         >
-          <h2 className="text-base font-bold lg:text-lg">
+          <h2 className="text-base font-bold text-center lg:text-lg">
             콘텐츠를 직접 선택 후 경로 만들고 여행가기
           </h2>
           <img
@@ -24,9 +24,9 @@ export default function Choice() {
         </Link>
         <Link
           href={"region"}
-          className="flex flex-col items-center gap-4 lg:gap-10 cursor-pointer"
+          className="flex flex-col items-center gap-4 cursor-pointer lg:gap-10 lg:ml-[152.5px] lg:first:mr-0 lg:last:ml-0"
         >
-          <h2 className="text-base font-bold lg:text-lg">
+          <h2 className="text-base font-bold text-center lg:text-lg">
             콘텐츠를 직접 선택 후 경로 만들고 여행가기
           </h2>
           <img

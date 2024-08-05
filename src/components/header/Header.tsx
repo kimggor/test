@@ -3,7 +3,7 @@ import { UserType, userState } from "@/atom/userStore";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useRecoilState } from "recoil";
 import Divider from "../common/Divider";
 
@@ -44,17 +44,21 @@ export default function Header() {
   }, []);
 
   return !headerValidate ? (
-    <div className="w-full h-[106px] min-w-[1920px] px-[45px] flex items-center justify-between bg-white">
-      <Link href={"/choice"} className="flex items-center">
+    <div className="w-full h-auto min-w-[320px] lg:min-w-[1920px] px-4 lg:px-[45px] py-4 lg:py-0 flex flex-row lg:flex-row items-center justify-between bg-white">
+      <Link
+        href={"/choice"}
+        className="flex w-[300px] items-center mb-4 lg:mb-0"
+      >
         <Image
           src="/logo/logo.png"
           alt="로고 이미지"
-          width={100}
-          height={100}
+          width={50}
+          height={50}
+          className="lg:w-[100px] lg:h-[100px]"
         />
-        <h1 className="text-[48px] font-[700]">Movie Trip</h1>
+        <h1 className="text-[24px] lg:text-[48px] font-[700]">Movie Trip</h1>
       </Link>
-      <ul className="w-[20%] flex items-center justify-between gap-10 text-[32px]">
+      <ul className="w-full lg:w-auto flex flex-row lg:flex-row items-center justify-center gap-20 lg:gap-10 text-[16px] lg:text-[32px] mb-4 lg:mb-0">
         {HEADER_CATEGORY_LIST.map((item) => (
           <li key={item.name}>
             <Link
@@ -68,13 +72,17 @@ export default function Header() {
           </li>
         ))}
       </ul>
-      <div className="flex items-center justify-center gap-10">
+      <div className="flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-10">
         <div
-          className="bg-black border-2 border-purple-500 rounded-md px-2 flex items-center justify-center gap-1 cursor-pointer"
+          className="bg-black border-2 border-purple-500 rounded-md px-2 py-1 flex items-center justify-center gap-1 cursor-pointer"
           onClick={handleLogout}
         >
-          <img src="/images/Logout.png" alt="" className="w-8 h-8" />
-          <button className="text-[18px] font-[500]  text-white p-2">
+          <img
+            src="/images/Logout.png"
+            alt="로그아웃"
+            className="w-6 h-6 lg:w-8 lg:h-8"
+          />
+          <button className="text-[14px] lg:text-[18px] font-[500] text-white">
             로그아웃
           </button>
         </div>
@@ -82,10 +90,13 @@ export default function Header() {
           <Image
             src={"/images/Mypage.png"}
             alt="마이 페이지"
-            width={60}
-            height={60}
+            width={40}
+            height={40}
+            className="lg:w-[60px] lg:h-[60px]"
           />
-          <p className="font-[700]">{user.userName}</p>
+          <p className="text-[14px] lg:text-[18px] font-[700]">
+            {user.userName}
+          </p>
         </Link>
       </div>
     </div>
