@@ -82,7 +82,7 @@ export default function Header() {
             alt="로그아웃"
             className="w-6 h-6 lg:w-8 lg:h-8"
           />
-          <button className="text-[14px] lg:text-[18px] font-[500] text-white">
+          <button className="text-[14px] lg:text-[18px] font-[500] text-white text-nowrap">
             로그아웃
           </button>
         </div>

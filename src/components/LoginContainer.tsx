@@ -41,7 +41,7 @@ export default function LoginContainer() {
     e.preventDefault();
     // 로그인 처리
     axios
-      .post(`${process.env.NEXT_PUBLIC_VERCEL_URL}/api/user/login`, loginForm)
+      .post(`${process.env.NEXT_PUBLIC_API_URL}/api/user/login`, loginForm)
       .then((res) => {
         if (res.data.status === 200 && typeof window !== "undefined") {
           localStorage.setItem("id", res.data.data.userInfo.id);
