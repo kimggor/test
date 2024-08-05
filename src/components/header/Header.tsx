@@ -56,7 +56,7 @@ export default function Header() {
           height={50}
           className="lg:w-[100px] lg:h-[100px]"
         />
-        <h1 className="text-[24px] lg:text-[48px] font-[700]">Movie Trip</h1>
+        <h1 className="text-[24px] lg:text-[36px] font-[700]">Movie Trip</h1>
       </Link>
       <ul className="w-full lg:w-auto flex flex-row lg:flex-row items-center justify-center gap-20 lg:gap-10 text-[16px] lg:text-[32px] mb-4 lg:mb-0">
         {HEADER_CATEGORY_LIST.map((item) => (
