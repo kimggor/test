@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import * as placeData from "../../../public/서울행정구역.json";
+import placeData from "../../../public/서울행정구역.json"; // JSON 데이터 import
 import axios from "axios";
 import Script from "next/script";
 
@@ -7,19 +7,18 @@ export default function KakaoMap2({ place }: { place: string[] }) {
   console.log(place);
   const API_KEY = process.env.NEXT_PUBLIC_KAKAO_API_KEY;
   const [map, setMap] = useState<any>();
-
   const [places, setPlaces] = useState<any[]>([]);
 
   useEffect(() => {
-    place.map((p) => {
+    place.forEach((p) => {
       const findData = placeData.features.find(
-        (pl) => pl.properties.name === p
+        (pl) => pl.properties.name === p,
       );
       if (findData) {
         setPlaces((prev) => [...prev, findData]);
       }
     });
-  }, []);
+  }, [place]); // place를 의존성 배열로 설정
 
   const loadKakaoMap = () => {
     if (places.length === 0) return;
@@ -29,16 +28,16 @@ export default function KakaoMap2({ place }: { place: string[] }) {
       const mapOption = {
         center: new window.kakao.maps.LatLng(
           37.557533180704915,
-          127.11519584981606
+          127.11519584981606,
         ),
         level: 7,
       };
       const map = new window.kakao.maps.Map(mapContainer, mapOption);
       setMap(map);
       console.log(places);
-      places.map((p) => {
+      places.forEach((p) => {
         const polygonPath = p.geometry.coordinates[0].map(
-          (coor: number[]) => new window.kakao.maps.LatLng(coor[1], coor[0])
+          (coor: number[]) => new window.kakao.maps.LatLng(coor[1], coor[0]),
         );
         if (polygonPath.length !== 0) {
           const polygon = new window.kakao.maps.Polygon({
@@ -52,6 +51,10 @@ export default function KakaoMap2({ place }: { place: string[] }) {
       });
     });
   };
+
+  useEffect(() => {
+    loadKakaoMap(); // places가 업데이트될 때마다 loadKakaoMap 호출
+  }, [places]);
 
   console.log(places);
   return (
