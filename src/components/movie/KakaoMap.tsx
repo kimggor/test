@@ -77,7 +77,7 @@ export default function KakaoMap() {
         map: map, // 지도에 선을 표시합니다
         path: linePaths, // 선을 구성하는 좌표배열 입니다
         strokeWeight: 10, // 선의 두께 입니다
-        strokeColor: "blue", // 선의 색깔입니다
+        strokeColor: "red", // 선의 색깔입니다
         strokeOpacity: 1, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
         strokeStyle: "solid", // 선의 스타일입니다
       });

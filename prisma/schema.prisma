@@ -82,9 +82,102 @@ model SeoulPlace {
   category      String
   titmeName        String
   address        String
+  location        String
   lat            Float? // 위도
   lng            Float? // 경도
 }
+
+model JeollaPlace {
+  seqNo        Int     @id
+  placeName    String
+  placeType    String
+  placeDesc    String
+  category     String
+  titmeName    String
+  address      String
+  location     String
+  lat          Float?  // 위도
+  lng          Float?  // 경도
+}
+
+model IncheonPlace {
+  seqNo        Int     @id
+  placeName    String
+  placeType    String
+  placeDesc    String
+  category     String
+  titmeName    String
+  address      String
+  location     String
+  lat          Float?  // 위도
+  lng          Float?  // 경도
+}
+
+model GyeonggiPlace {
+  seqNo        Int     @id
+  placeName    String
+  placeType    String
+  placeDesc    String
+  category     String
+  titmeName    String
+  address      String
+  location     String
+  lat          Float?  // 위도
+  lng          Float?  // 경도
+}
+
+model GangwonPlace {
+  seqNo        Int     @id
+  placeName    String
+  placeType    String
+  placeDesc    String
+  category     String
+  titmeName    String
+  address      String
+  location     String
+  lat          Float?  // 위도
+  lng          Float?  // 경도
+}
+
+model ChungcheongPlace {
+  seqNo        Int     @id
+  placeName    String
+  placeType    String
+  placeDesc    String
+  category     String
+  titmeName    String
+  address      String
+  location     String
+  lat          Float?  // 위도
+  lng          Float?  // 경도
+}
+
+model GyeongsangPlace {
+  seqNo        Int     @id
+  placeName    String
+  placeType    String
+  placeDesc    String
+  category     String
+  titmeName    String
+  address      String
+  location     String
+  lat          Float?  // 위도
+  lng          Float?  // 경도
+}
+
+model BusanPlace {
+  seqNo        Int     @id
+  placeName    String
+  placeType    String
+  placeDesc    String
+  category     String
+  titmeName    String
+  address      String
+  location     String
+  lat          Float?  // 위도
+  lng          Float?  // 경도
+}
+
 
 model MovieReview {
   movieReviewId   Int    @id  @default(autoincrement())

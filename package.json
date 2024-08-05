@@ -10,6 +10,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@mui/icons-material": "^5.15.17",
     "@nivo/core": "^0.86.0",
     "@nivo/pie": "^0.86.0",
     "@nivo/radial-bar": "^0.86.0",
@@ -17,6 +20,7 @@
     "axios": "^1.6.7",
     "jsonwebtoken": "^9.0.2",
     "next": "^14.2.3",
+    "nodemailer": "^6.9.14",
     "react": "^18",
     "react-dom": "^18",
     "recoil": "^0.7.7"
@@ -24,6 +28,7 @@
   "devDependencies": {
     "@types/navermaps": "^3.7.4",
     "@types/node": "^20",
+    "@types/nodemailer": "^6.4.15",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",

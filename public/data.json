@@ -799,7 +799,7 @@
     {
       "SEQ_NO": 51,
       "MEDIA_TY": "movie",
-      "TITLE_NM": "리틀포레스트",
+      "TITLE_NM": "리틀 포레스트",
       "PLACE_NM": "한밤마을",
       "PLACE_TY": "playground",
       "RELATE_PLACE_DC": "리틀 포레스트 가을 장면에 등장하는 돌담길",
@@ -815,7 +815,7 @@
     {
       "SEQ_NO": 52,
       "MEDIA_TY": "movie",
-      "TITLE_NM": "리틀포레스트",
+      "TITLE_NM": "리틀 포레스트",
       "PLACE_NM": "역전상회",
       "PLACE_TY": "store",
       "RELATE_PLACE_DC": "리틀 포레스트 예고편에도 등장하는 역전상회",
@@ -831,7 +831,7 @@
     {
       "SEQ_NO": 53,
       "MEDIA_TY": "movie",
-      "TITLE_NM": "리틀포레스트",
+      "TITLE_NM": "리틀 포레스트",
       "PLACE_NM": "일연공원",
       "PLACE_TY": "playground",
       "RELATE_PLACE_DC": "리틀 포레스트에 나온 조용한 소풍장소",
@@ -847,7 +847,7 @@
     {
       "SEQ_NO": 54,
       "MEDIA_TY": "movie",
-      "TITLE_NM": "리틀포레스트",
+      "TITLE_NM": "리틀 포레스트",
       "PLACE_NM": "혜원의 집",
       "PLACE_TY": "playground",
       "RELATE_PLACE_DC": "영화 리틀 포레스트에 나오는 혜원의 집 촬영지",
@@ -863,7 +863,7 @@
     {
       "SEQ_NO": 55,
       "MEDIA_TY": "movie",
-      "TITLE_NM": "리틀포레스트",
+      "TITLE_NM": "리틀 포레스트",
       "PLACE_NM": "보호수 나무",
       "PLACE_TY": "playground",
       "RELATE_PLACE_DC": "영화 리틀 포레스트 들판에 있는 보호수 나무",
@@ -879,7 +879,7 @@
     {
       "SEQ_NO": 56,
       "MEDIA_TY": "movie",
-      "TITLE_NM": "리틀포레스트",
+      "TITLE_NM": "리틀 포레스트",
       "PLACE_NM": "고운사",
       "PLACE_TY": "playground",
       "RELATE_PLACE_DC": "리틀 포레스트에서 봤던 장면이 그대로 보이는 절",
@@ -895,7 +895,7 @@
     {
       "SEQ_NO": 57,
       "MEDIA_TY": "movie",
-      "TITLE_NM": "리틀포레스트",
+      "TITLE_NM": "리틀 포레스트",
       "PLACE_NM": "의성 산수유 꽃피는 마을",
       "PLACE_TY": "playground",
       "RELATE_PLACE_DC": "리틀포레스트에서 고향에 온 혜원이 자전거를 탄 곳",
@@ -911,7 +911,7 @@
     {
       "SEQ_NO": 58,
       "MEDIA_TY": "movie",
-      "TITLE_NM": "리틀포레스트",
+      "TITLE_NM": "리틀 포레스트",
       "PLACE_NM": "빙계계곡",
       "PLACE_TY": "playground",
       "RELATE_PLACE_DC": "리틀 포레스트 촬영지이자 피서지로 좋은 계곡",
@@ -1143,8 +1143,8 @@
       "REST_TIME": "정보없음",
       "RSTDE_GUID_CN": "연중무휴",
       "ADDR": "서울특별시 용산구 녹사평대로 195",
-      "LC_LA": 37.534758,
-      "LC_LO": 126.98656,
+      "LC_LA": 37.5349458,
+      "LC_LO": 126.9870709,
       "TEL_NO": 263116291,
       "LAST_UPDT_DE": 20221125
     },

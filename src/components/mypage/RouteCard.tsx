@@ -9,7 +9,7 @@ type RouteCardProps = {
     type: string;
     title: string;
     progress: number;
-    handleDeleteTrigger: () => void;
+    handleDeleteTrigger?: () => void;
 };
 
 export default function RouteCard({userSaveRouteId, type, title, progress, handleDeleteTrigger }: RouteCardProps) {
