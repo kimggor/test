@@ -1,13 +1,30 @@
 import { getPrismaClient } from "@/utils/util";
 import { NextRequest, NextResponse } from "next/server";
 
+const prisma = getPrismaClient().prisma;
+
+// CORS 헤더를 설정하는 함수
+const setCorsHeaders = (response: NextResponse) => {
+  response.headers.set("Access-Control-Allow-Origin", "*");
+  response.headers.set(
+    "Access-Control-Allow-Methods",
+    "GET, POST, PUT, DELETE, OPTIONS",
+  );
+  response.headers.set(
+    "Access-Control-Allow-Headers",
+    "Content-Type, Authorization",
+  );
+  return response;
+};
+
 export async function POST(request: NextRequest) {
   const reqUser = await request.json();
   const { id, pw, email } = reqUser;
+
   const newUser = {
-    userId: id as string,
-    password: pw as string,
-    email: email as string,
+    userId: id,
+    password: pw,
+    email: email,
     point: 0,
     createdAt: new Date(),
     updatedAt: undefined,
@@ -15,16 +32,16 @@ export async function POST(request: NextRequest) {
   };
 
   try {
-    const { prisma } = getPrismaClient();
     const createUser = await prisma.user.create({ data: newUser });
-
-    return NextResponse.json(createUser, { status: 201 }); // 명시적으로 201 상태 반환
+    let response = NextResponse.json(createUser, { status: 201 });
+    return setCorsHeaders(response);
   } catch (error) {
-    console.error(error);
-    return NextResponse.json(
+    console.error("Error creating user:", error);
+    let response = NextResponse.json(
       { message: "Internal server error" },
       { status: 500 },
     );
+    return setCorsHeaders(response);
   }
 }
 
@@ -34,18 +51,18 @@ export async function PUT(request: NextRequest) {
   console.log(id);
 
   try {
-    const { prisma } = getPrismaClient();
     const deleteUser = await prisma.user.update({
       data: { deletedAt: new Date() },
       where: { id: Number(id) },
     });
-
-    return NextResponse.json(deleteUser, { status: 200 }); // 명시적으로 200 상태 반환
+    let response = NextResponse.json(deleteUser, { status: 200 });
+    return setCorsHeaders(response);
   } catch (error) {
-    console.error(error);
-    return NextResponse.json(
+    console.error("Error updating user:", error);
+    let response = NextResponse.json(
       { message: "Internal server error" },
       { status: 500 },
     );
+    return setCorsHeaders(response);
   }
 }
