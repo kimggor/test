@@ -3,7 +3,6 @@ import { NextRequest, NextResponse } from "next/server";
 
 const prisma = getPrismaClient().prisma;
 
-// CORS 헤더를 설정하는 함수
 const setCorsHeaders = (response: NextResponse) => {
   response.headers.set("Access-Control-Allow-Origin", "*");
   response.headers.set(
@@ -51,9 +50,7 @@ export async function POST(request: NextRequest) {
 }
 
 export async function PUT(request: NextRequest) {
-  console.log("test");
   const { id } = await request.json();
-  console.log(id);
 
   try {
     const deleteUser = await prisma.user.update({

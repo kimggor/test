@@ -7,7 +7,6 @@ const { prisma } = getPrismaClient();
 export async function POST(request: NextRequest) {
   const SECRET_KEY = process.env.TOKEN_SECRET_KEY;
 
-  // SECRET_KEY가 정의되지 않았을 경우 오류 반환
   if (!SECRET_KEY) {
     const response = NextResponse.json(
       { message: "Internal server error: SECRET_KEY is not defined" },
@@ -19,8 +18,6 @@ export async function POST(request: NextRequest) {
 
   const reqUser = await request.json();
   const { id, pw } = reqUser;
-
-  console.log(id, pw);
 
   try {
     const findUser = await prisma.user.findMany({
@@ -57,7 +54,6 @@ export async function POST(request: NextRequest) {
     };
 
     const token = jwt.sign(payload, SECRET_KEY, option);
-    console.log(token);
 
     const response = NextResponse.json({
       data: { token, userInfo: findUser[0] },
