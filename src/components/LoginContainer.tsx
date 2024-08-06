@@ -40,25 +40,23 @@ export default function LoginContainer() {
   const handleLogin = (e: FormEvent) => {
     e.preventDefault();
     // 로그인 처리
-    axios
-      .post(`${process.env.NEXT_PUBLIC_LOCAL_URL}/api/user/login`, loginForm)
-      .then((res) => {
-        if (res.data.status === 200 && typeof window !== "undefined") {
-          localStorage.setItem("id", res.data.data.userInfo.id);
-          localStorage.setItem("userName", res.data.data.userInfo.userId);
-          localStorage.setItem("email", res.data.data.userInfo.email);
-          localStorage.setItem("token", res.data.data.token);
-          setUser({
-            userId: res.data.data.userInfo.id,
-            userEmail: res.data.data.userInfo.email,
-            userName: res.data.data.userInfo.userId,
-          });
-          router.push("/choice");
-        } else {
-          setErrorMsg(res.data.message);
-          handleErrorMessage();
-        }
-      });
+    axios.post(`/api/user/login`, loginForm).then((res) => {
+      if (res.data.status === 200 && typeof window !== "undefined") {
+        localStorage.setItem("id", res.data.data.userInfo.id);
+        localStorage.setItem("userName", res.data.data.userInfo.userId);
+        localStorage.setItem("email", res.data.data.userInfo.email);
+        localStorage.setItem("token", res.data.data.token);
+        setUser({
+          userId: res.data.data.userInfo.id,
+          userEmail: res.data.data.userInfo.email,
+          userName: res.data.data.userInfo.userId,
+        });
+        router.push("/choice");
+      } else {
+        setErrorMsg(res.data.message);
+        handleErrorMessage();
+      }
+    });
   };
 
   return (
