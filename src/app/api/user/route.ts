@@ -17,6 +17,11 @@ const setCorsHeaders = (response: NextResponse) => {
   return response;
 };
 
+export async function OPTIONS() {
+  const response = NextResponse.json(null, { status: 204 });
+  return setCorsHeaders(response);
+}
+
 export async function POST(request: NextRequest) {
   const reqUser = await request.json();
   const { id, pw, email } = reqUser;
