@@ -1,8 +1,7 @@
-import { getPrismaClient } from "@/utils/util";
+import prisma from "@/utils/prisma";
 import { NextRequest, NextResponse } from "next/server";
+import { validateJwtToken } from "@/utils/util";
 import jwt from "jsonwebtoken";
-
-const { prisma } = getPrismaClient();
 
 export async function POST(request: NextRequest) {
   const SECRET_KEY = process.env.TOKEN_SECRET_KEY;
@@ -55,6 +54,24 @@ export async function POST(request: NextRequest) {
     );
   } catch (error) {
     console.error("Error processing request:", error);
+    return NextResponse.json(
+      { message: "Internal server error" },
+      { status: 500 },
+    );
+  }
+}
+
+export async function PUT(request: NextRequest) {
+  const { id } = await request.json();
+
+  try {
+    const deleteUser = await prisma.user.update({
+      data: { deletedAt: new Date() },
+      where: { id: Number(id) },
+    });
+    return NextResponse.json(deleteUser, { status: 200 });
+  } catch (error) {
+    console.error("Error updating user:", error);
     return NextResponse.json(
       { message: "Internal server error" },
       { status: 500 },

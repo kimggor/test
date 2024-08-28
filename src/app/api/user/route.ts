@@ -1,11 +1,14 @@
-import { getPrismaClient } from "@/utils/util";
+import prisma from "@/utils/prisma";
 import { NextRequest, NextResponse } from "next/server";
-
-const prisma = getPrismaClient().prisma;
 
 export async function POST(request: NextRequest) {
   const reqUser = await request.json();
   const { id, pw, email } = reqUser;
+
+  // 기본적인 유효성 검사
+  if (!id || !pw || !email) {
+    return NextResponse.json({ message: "Invalid input" }, { status: 400 });
+  }
 
   const newUser = {
     userId: id,
@@ -22,6 +25,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json(createUser, { status: 201 });
   } catch (error) {
     console.error("Error creating user:", error);
+
     return NextResponse.json(
       { message: "Internal server error" },
       { status: 500 },
@@ -32,6 +36,13 @@ export async function POST(request: NextRequest) {
 export async function PUT(request: NextRequest) {
   const { id } = await request.json();
 
+  if (!id) {
+    return NextResponse.json(
+      { message: "User ID is required" },
+      { status: 400 },
+    );
+  }
+
   try {
     const deleteUser = await prisma.user.update({
       data: { deletedAt: new Date() },
@@ -40,6 +51,7 @@ export async function PUT(request: NextRequest) {
     return NextResponse.json(deleteUser, { status: 200 });
   } catch (error) {
     console.error("Error updating user:", error);
+
     return NextResponse.json(
       { message: "Internal server error" },
       { status: 500 },
