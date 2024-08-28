@@ -12,17 +12,17 @@ export async function GET(request: NextRequest) {
       { status: 400 },
     );
   }
-
+  const title = decodeURIComponent(params);
   try {
     const findMovie = await prisma.movie.findMany({
       where: {
-        title: params, // params는 이미 문자열로 확인됨
+        title: title, // params는 이미 문자열로 확인됨
       },
     });
 
     const findMoviePlace = await prisma.moviePlace.findMany({
       where: {
-        title: params, // params는 이미 문자열로 확인됨
+        title: title, // params는 이미 문자열로 확인됨
       },
     });
 
