@@ -17,8 +17,14 @@ const setCorsHeaders = (response: NextResponse) => {
 };
 
 export async function OPTIONS() {
-  const response = NextResponse.json(null, { status: 204 });
-  return setCorsHeaders(response);
+  const response = NextResponse.json({}, { status: 204 });
+  response.headers.set("Access-Control-Allow-Origin", "*");
+  response.headers.set("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+  response.headers.set(
+    "Access-Control-Allow-Headers",
+    "Content-Type, Authorization",
+  );
+  return response;
 }
 
 export async function POST(request: NextRequest) {
