@@ -11,7 +11,7 @@ export default function ContentPlaceBox({
   return (
     <Link
       href={`${region}/${placeName}`}
-      className="flex flex-col items-start gap-3"
+      className="flex flex-col items-center lg:items-start gap-3"
     >
       <img
         className="w-[265px] h-[235px]"

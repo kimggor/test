@@ -41,16 +41,27 @@ export default function RegionBox({
 
   return (
     <div
-      className="w-auto py-[10px] px-[40px] cursor-pointer rounded-[10px] bg-[#D9D9D9] flex flex-col gap-4 items-center justify-center"
+      className="w-full sm:w-auto py-2 px-4 sm:py-[10px] sm:px-[40px] cursor-pointer rounded-[10px] bg-[#D9D9D9] flex flex-col gap-2 sm:gap-4 items-center justify-center"
       onClick={handleRouter}
     >
-      <img className="w-[120px] h-[80px]" src={img} alt={name} />
+      <img
+        className="w-[80px] h-[60px] sm:w-[120px] sm:h-[80px]"
+        src={img}
+        alt={name}
+      />
       {img2 && (
-        <img className="w-[120px] h-[80px]" src={img2} alt={`sec-${name}`} />
+        <img
+          className="w-[80px] h-[60px] sm:w-[120px] sm:h-[80px]"
+          src={img2}
+          alt={`sec-${name}`}
+        />
       )}
-      {/* {secImg && <img className='w-[120px] h-[80px]' src={secImg} alt={`sec-${name}`} />} */}
-      <p className="text-black text-[23px] font-bold">{name}</p>
-      {name2 && <p className="text-black text-[23px] font-bold">{name2}</p>}
+      <p className="text-black text-[18px] sm:text-[23px] font-bold">{name}</p>
+      {name2 && (
+        <p className="text-black text-[18px] sm:text-[23px] font-bold">
+          {name2}
+        </p>
+      )}
     </div>
   );
 }

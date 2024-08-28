@@ -13,13 +13,13 @@ export default function Choice() {
           href={"movies"}
           className="flex flex-col items-center gap-4 cursor-pointer mb-6 lg:gap-10 lg:mb-0 lg:mr-[152.5px] lg:first:mr-0 lg:last:ml-0"
         >
-          <h2 className="text-base font-bold text-center lg:text-lg">
+          <h2 className="text-base font-bold text-center lg:text-lg ">
             콘텐츠를 직접 선택 후 경로 만들고 여행가기
           </h2>
           <img
             src="/images/content.jpg"
             alt="content"
-            className="w-48 h-48 lg:w-auto lg:h-auto"
+            className="w-48 h-48 lg:w-auto lg:h-auto shadow-lg p-4 lg:p-10"
           />
         </Link>
         <Link
@@ -32,7 +32,7 @@ export default function Choice() {
           <img
             src="/images/region.jpg"
             alt="region"
-            className="w-48 h-48 lg:w-auto lg:h-auto"
+            className="w-48 h-48 lg:w-auto lg:h-auto shadow-lg p-4 lg:p-10"
           />
         </Link>
       </div>

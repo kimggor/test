@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function ReviewBox({ review }: {review: any}) {
+export default function ReviewBox({ review }: { review: any }) {
   const arr = new Array(5).fill(0);
 
   // 리뷰 박스 컴포넌트
@@ -19,7 +19,9 @@ export default function ReviewBox({ review }: {review: any}) {
           {arr.map((item, i) => (
             <span
               key={i}
-              className={i < review.rating ? "text-[#ffc107]" : "text-[#c1c1c1]"}
+              className={
+                i < review.rating ? "text-[#ffc107]" : "text-[#c1c1c1]"
+              }
             >
               {i < review.rating ? (
                 <img

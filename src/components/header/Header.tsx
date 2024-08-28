@@ -47,7 +47,7 @@ export default function Header() {
     <div className="w-full h-auto min-w-[320px] lg:min-w-[1920px] px-4 lg:px-[45px] py-4 lg:py-0 flex flex-row lg:flex-row items-center justify-between bg-white">
       <Link
         href={"/choice"}
-        className="flex w-[300px] items-center mb-4 lg:mb-0"
+        className="flex w-[150px] items-center mb-4 lg:mb-0 flex-col lg:flex-row lg:w-[300px]"
       >
         <Image
           src="/logo/logo.png"
@@ -56,9 +56,12 @@ export default function Header() {
           height={50}
           className="lg:w-[100px] lg:h-[100px]"
         />
-        <h1 className="text-[24px] lg:text-[36px] font-[700]">Movie Trip</h1>
+        <h1 className="text-[14px] sm:text-[24px] lg:text-[36px] font-[700]">
+          Movie Trip
+        </h1>
       </Link>
-      <ul className="w-full lg:w-auto flex flex-row lg:flex-row items-center justify-center gap-20 lg:gap-10 text-[16px] lg:text-[32px] mb-4 lg:mb-0">
+
+      <ul className="w-full lg:w-auto flex flex-row lg:flex-row items-center justify-center gap-4 lg:gap-10 text-[14px] sm:text-[16px] lg:text-[32px] mb-4 lg:mb-0">
         {HEADER_CATEGORY_LIST.map((item) => (
           <li key={item.name}>
             <Link
@@ -73,6 +76,18 @@ export default function Header() {
         ))}
       </ul>
       <div className="flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-10">
+        <Link href={"/mypage"} className="flex flex-col items-center">
+          <Image
+            src={"/images/Mypage.png"}
+            alt="마이 페이지"
+            width={30}
+            height={30}
+            className="sm:w-[40px] sm:h-[40px] lg:w-[60px] lg:h-[60px]"
+          />
+          <p className="text-[12px] sm:text-[14px] lg:text-[18px] font-[700]">
+            {user.userName}
+          </p>
+        </Link>
         <div
           className="bg-black border-2 border-purple-500 rounded-md px-2 py-1 flex items-center justify-center gap-1 cursor-pointer"
           onClick={handleLogout}
@@ -80,24 +95,12 @@ export default function Header() {
           <img
             src="/images/Logout.png"
             alt="로그아웃"
-            className="w-6 h-6 lg:w-8 lg:h-8"
+            className="w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8"
           />
-          <button className="text-[14px] lg:text-[18px] font-[500] text-white text-nowrap">
+          <button className="text-[12px] sm:text-[14px] lg:text-[18px] font-[500] text-white text-nowrap">
             로그아웃
           </button>
         </div>
-        <Link href={"/mypage"} className="flex flex-col items-center">
-          <Image
-            src={"/images/Mypage.png"}
-            alt="마이 페이지"
-            width={40}
-            height={40}
-            className="lg:w-[60px] lg:h-[60px]"
-          />
-          <p className="text-[14px] lg:text-[18px] font-[700]">
-            {user.userName}
-          </p>
-        </Link>
       </div>
     </div>
   ) : null;

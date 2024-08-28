@@ -41,7 +41,7 @@ export default function KakaoMap() {
   const handleMarkers = (lat: any, lng: any, start: boolean, last: boolean) => {
     const markerImage = new window.kakao.maps.MarkerImage(
       `/images/${last ? "endLoad" : start ? "startLoad" : "spotLoad"}.png`,
-      new window.kakao.maps.Size(50, 50)
+      new window.kakao.maps.Size(50, 50),
     );
     const markerPosition = new window.kakao.maps.LatLng(lat, lng);
     const marker = new window.kakao.maps.Marker({
@@ -60,7 +60,7 @@ export default function KakaoMap() {
           wayPoint.lat,
           wayPoint.lng,
           i === 0,
-          i === selectedPlace.length - 1
+          i === selectedPlace.length - 1,
         );
       });
       // 지도에 표시할 선을 생성합니다
@@ -112,7 +112,7 @@ export default function KakaoMap() {
               "Content-Type": "application/json",
               Authorization: `KakaoAK ${REST_API_KEY}`,
             },
-          }
+          },
         )
         .then((res) => {
           if (res.data.routes[0].result_code === 107) {
@@ -129,14 +129,14 @@ export default function KakaoMap() {
                 ...prev,
                 new window.kakao.maps.LatLng(
                   road.vertexes[1],
-                  road.vertexes[0]
+                  road.vertexes[0],
                 ),
               ]);
               setLinePaths((prev) => [
                 ...prev,
                 new window.kakao.maps.LatLng(
                   road.vertexes[3],
-                  road.vertexes[2]
+                  road.vertexes[2],
                 ),
               ]);
             });
@@ -189,12 +189,12 @@ export default function KakaoMap() {
   return (
     selectedPlace.length !== 0 &&
     linePaths && (
-      <div className="w-full h-auto flex flex-col gap-2 items-center mt-[40px]">
+      <div className="w-full h-auto flex flex-col gap-2 items-center mt-10">
         <img
           src="/images/kakaoMap.png"
           alt="카카오맵 로고"
-          width={120}
-          height={120}
+          width={100}
+          height={100}
           className="rounded-lg cursor-pointer"
           onClick={handleSetLoad}
         />
@@ -205,7 +205,10 @@ export default function KakaoMap() {
           onReady={loadKakaoMap}
           onError={console.error}
         />
-        <div id={"map"} className="w-4/5 h-[800px]" />
+        <div
+          id="map"
+          className="w-full sm:w-4/5 h-[400px] sm:h-[600px] lg:h-[800px] "
+        />
       </div>
     )
   );

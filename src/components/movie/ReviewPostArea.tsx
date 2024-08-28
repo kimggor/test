@@ -7,7 +7,7 @@ export default function ReviewPostArea({
   movieTitle,
   starRating,
   handleStarInitial,
-  getMovieReview
+  getMovieReview,
 }: {
   movieTitle: string;
   starRating: number;
@@ -27,7 +27,7 @@ export default function ReviewPostArea({
   // 리뷰 등록
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    setIsLoading(true)
+    setIsLoading(true);
     const reqReview = {
       authorId: Number(user.userId),
       authorName: user.userName,
@@ -41,11 +41,12 @@ export default function ReviewPostArea({
         handleStarInitial();
         setReviewText("");
         getMovieReview();
-      }).finally(() => setIsLoading(false))
+      })
+      .finally(() => setIsLoading(false));
   };
 
   return (
-    <form className="flex flex-col items-end gap-2" onSubmit={handleSubmit}>
+    <form className="flex flex-col items-center gap-2" onSubmit={handleSubmit}>
       <textarea
         className="w-full border border-[#9356d6] rounded-lg p-4"
         name="review"
@@ -56,7 +57,7 @@ export default function ReviewPostArea({
         placeholder="리뷰를 입력해주세요."
       />
       <button className="w-[140px] h-[50px] bg-[#9356d6] text-white text-[18px] rounded-lg">
-        <p>{isLoading ? '등록 중...' : '리뷰 등록'}</p>
+        <p>{isLoading ? "등록 중..." : "리뷰 등록"}</p>
       </button>
     </form>
   );

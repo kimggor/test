@@ -12,19 +12,22 @@ export default function RegionDetailPage({
   const placeKey = Object.keys(CONTENT_PLACE[name].place);
 
   return (
-    <div className="w-full min-w-[1920px] flex flex-col items-center">
+    <div className="w-full flex flex-col items-center">
       <Divider />
-      <div className="w-full flex items-center justify-center gap-2 mt-[50px]">
+
+      <div className="w-full flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 mt-[20px] sm:mt-[50px]">
         <img
-          className="w-[120px] h-[80px]"
+          className="w-[80px] h-[60px] sm:w-[120px] sm:h-[80px]"
           src={`/images/region/${CONTENT_PLACE[name].name}.jpg`}
           alt="지역 사진"
         />
-        <h1 className="text-[27px]">{CONTENT_PLACE[name].name}</h1>
+        <h1 className="text-[22px]  sm:text-[27px]">
+          {CONTENT_PLACE[name].name}
+        </h1>
       </div>
-      <div className="w-full flex items-center justify-center mt-[125px] gap-[72px]">
+
+      <div className="w-full flex flex-col sm:flex-row items-center justify-center mt-[50px] sm:mt-[125px] gap-[20px] sm:gap-[72px]">
         {placeKey.map((placeName, i) => {
-          console.log(CONTENT_PLACE[name].place[placeName]);
           return (
             <ContentPlaceBox key={i} region={name} placeName={placeName} />
           );

@@ -65,18 +65,22 @@ export default function RegionPage() {
     },
   ];
   return (
-    <div className="w-full min-w-[1920px] flex flex-col items-start">
+    <div className="w-full flex flex-col items-start px-4 sm:px-8 md:px-16">
       <Divider />
-      <div className="mt-[45px] mx-auto">
-        <h2 className="font-bold text-[27px] ml-[145px]">
+      <div className="mt-10 sm:mt-[45px] mx-auto w-full sm:w-auto">
+        <h2 className="font-bold text-[20px] sm:text-[24px] md:text-[27px] text-center sm:text-left ml-0 sm:ml-[145px]">
           가고싶은 지역을 선택해주세요
         </h2>
-        <div className="flex items-center gap-[28px] px-[30px] mt-[59px]">
-          <div className="w-[500px] h-[500px] bg-black rounded-[9px]">
-            <img src="/images/koreamap.svg" alt="지도" />
+        <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-[28px] px-0 sm:px-[30px] mt-6 sm:mt-[59px]">
+          <div className="w-full sm:w-[500px] h-[300px] sm:h-[500px] bg-black rounded-[9px] overflow-hidden">
+            <img
+              src="/images/koreamap.svg"
+              alt="지도"
+              className="w-full h-full object-cover"
+            />
           </div>
-          <div className="flex flex-col gap-[51px]">
-            <div className="flex items-center gap-[50px]">
+          <div className="flex flex-col gap-4 sm:gap-[51px]">
+            <div className="grid grid-cols-2 mb-6 sm:grid-cols-2 gap-4 sm:gap-8">
               {REGION_1.map((region, index) => (
                 <RegionBox
                   key={index}
@@ -87,8 +91,6 @@ export default function RegionPage() {
                   engName={region.engName}
                 />
               ))}
-            </div>
-            <div className="flex items-center gap-[50px]">
               {REGION_2.map((region, index) => (
                 <RegionBox
                   key={index}

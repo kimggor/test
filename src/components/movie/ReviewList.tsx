@@ -30,7 +30,7 @@ export default function ReviewList({ movieTitle }: { movieTitle: string }) {
       .get(
         `${
           process.env.NEXT_PUBLIC_LOCAL_URL
-        }/api/review?movieTitle=${decodeURIComponent(movieTitle)}`
+        }/api/review?movieTitle=${decodeURIComponent(movieTitle)}`,
       )
       .then((res) => {
         setReviewList(res.data.data);
@@ -44,13 +44,13 @@ export default function ReviewList({ movieTitle }: { movieTitle: string }) {
   }, [movieTitle]);
 
   return (
-    <div className="w-full flex flex-col gap-3 px-16 mt-8">
-      <div className="flex items-end justify-between">
-        <h2 className="text-[24px] text-[#333333] font-[700]">
+    <div className="w-full flex flex-col gap-3 px-4 sm:px-8 md:px-16 mt-8">
+      <div className="flex flex-col sm:flex-row items-end justify-between gap-4">
+        <h2 className="text-lg sm:text-[24px] text-[#333333] font-[700]">
           무비트립 사용자 평
         </h2>
         <div className="flex gap-2 items-center">
-          <p className="text-[24px]">평가하기 {">"} </p>
+          <p className="text-base sm:text-[24px]">평가하기 {">"} </p>
           <div className="flex gap-2 items-center">
             {arr.map((item, i) => (
               <span
@@ -58,19 +58,15 @@ export default function ReviewList({ movieTitle }: { movieTitle: string }) {
                 className={i < starRating ? "text-[#ffc107]" : "text-[#c1c1c1]"}
                 onClick={() => handleStart(i)}
               >
-                {i < starRating ? (
-                  <img
-                    src="/images/activeStar.png"
-                    alt="별점 이미지"
-                    className="w-6 h-6 cursor-pointer"
-                  />
-                ) : (
-                  <img
-                    src="/images/defaultStar.png"
-                    alt="별점 이미지"
-                    className="w-6 h-6 cursor-pointer"
-                  />
-                )}
+                <img
+                  src={
+                    i < starRating
+                      ? "/images/activeStar.png"
+                      : "/images/defaultStar.png"
+                  }
+                  alt="별점 이미지"
+                  className="w-5 h-5 sm:w-6 sm:h-6 cursor-pointer"
+                />
               </span>
             ))}
           </div>
@@ -82,7 +78,7 @@ export default function ReviewList({ movieTitle }: { movieTitle: string }) {
         handleStarInitial={handleStarInitial}
         getMovieReview={getMovieReview}
       />
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4 mt-4">
         {isLoading ? (
           <p>로딩중입니다...</p>
         ) : (

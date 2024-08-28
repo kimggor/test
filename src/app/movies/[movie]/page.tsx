@@ -85,40 +85,40 @@ export default function MovieDetailPage({
   return !isSelected ? (
     <MovieDetails movie={params.movie as string} handleSelect={handleSelect} />
   ) : (
-    <div className="w-full h-full min-w-[1920px]">
+    <div className="w-full h-full">
       <Divider />
-      <div className="w-full flex items-center justify-between py-10 px-16">
-        <div className="flex items-center gap-5">
+      <div className="w-full flex flex-col sm:flex-row items-center justify-between py-6 sm:py-10 px-4 sm:px-8 md:px-16">
+        <div className="flex items-center gap-3 sm:gap-5">
           <div onClick={handleUnSelect} className="cursor-pointer">
             <img
               src="/images/return.svg"
               alt="돌아가기 아이콘"
-              className="w-10 h-10"
+              className="w-8 h-8 sm:w-10 sm:h-10"
             />
           </div>
-          <h2 className="text-[#333333] text-[32px] font-[700]">
+          <h2 className="text-[#333333] text-[16px] sm:text-[24px] md:text-[32px] font-[700]">
             선택한 촬영지 기반으로 경로를 안내할게요!
           </h2>
         </div>
-        <div className="w-[282px] h-[52px] flex items-center justify-between p-2 bg-black rounded-lg">
-          <p className="text-[#f2f2f2] text-[24px]">
+        <div className="w-full sm:w-[282px] h-[40px] sm:h-[52px] flex items-center justify-between p-2 bg-black rounded-lg mt-4 sm:mt-0">
+          <p className="text-[#f2f2f2] text-[16px] sm:text-[20px] md:text-[24px] truncate">
             {decodeURIComponent(params.movie as string)}
           </p>
           <img
             src="/images/Search.png"
             alt="검색 아이콘"
-            className="w-[40px] h-[40px]"
+            className="w-[30px] sm:w-[40px] h-[30px] sm:h-[40px]"
           />
         </div>
       </div>
       <div className="w-full flex flex-col items-center">
         <KakaoMap />
-        <div className="w-full max-w-[1920px] flex flex-col items-start mt-5">
-          <h2 className="text-[32px] text-[#333333] font-[700] mb-2">
+        <div className="w-full max-w-[1920px] flex flex-col items-start mt-5 px-4 sm:px-8 md:px-16">
+          <h2 className="text-[24px] sm:text-[28px] md:text-[32px] text-[#333333] font-[700] mb-2">
             선택한 촬영지
           </h2>
-          <Divider height="h-[8px]" />
-          <div className="w-full max-w-[1920px] grid grid-cols-5 gap-4 px-16 py-8">
+          <Divider height="h-[4px] sm:h-[6px] md:h-[8px]" />
+          <div className="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 sm:gap-4 px-4 sm:px-8 py-4 sm:py-8">
             {selectedPlace?.map((movie) => (
               <PlaceBox key={movie.moviePlaceId} movie={movie} />
             ))}
@@ -126,20 +126,22 @@ export default function MovieDetailPage({
         </div>
         <button
           onClick={handleRouteSave}
-          className="px-6 py-4 rounded-[6px] bg-[#2D3648] text-white text-[24px] font-bold mt-[70px] mb-[36px]"
+          className="px-4 sm:px-6 py-3 sm:py-4 rounded-[6px] bg-[#2D3648] text-white text-[18px] sm:text-[20px] md:text-[24px] font-bold mt-6 sm:mt-[70px] mb-4 sm:mb-[36px]"
         >
           경로저장
         </button>
       </div>
       {isPopupOpen && (
-        <div className="w-[546px] h-[156px] p-6 flex flex-col gap-2 bg-white rounded-[8px] fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50">
-          <p>경로저장 완료!</p>
-          <p>마이페이지에서 확인가능해요</p>
+        <div className="w-[90%] sm:w-[546px] h-auto sm:h-[156px] p-4 sm:p-6 flex flex-col gap-2 bg-white rounded-[8px] fixed left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50">
+          <p className="text-[16px] sm:text-[18px]">경로저장 완료!</p>
+          <p className="text-[14px] sm:text-[16px]">
+            마이페이지에서 확인가능해요
+          </p>
           <div
             onClick={() => setIsPopupOpen(false)}
-            className="absolute right-[10px] top-[10px]"
+            className="absolute right-[10px] top-[10px] cursor-pointer"
           >
-            <img src="/images/popupClose.svg" alt="" />
+            <img src="/images/popupClose.svg" alt="닫기 아이콘" />
           </div>
         </div>
       )}
