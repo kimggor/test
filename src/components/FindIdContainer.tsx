@@ -28,7 +28,7 @@ export default function FindIdContainer() {
             email: findIdForm.email,
         };
         axios
-            .get(`${process.env.NEXT_PUBLIC_LOCAL_URL}/api/auth`, { params }) // 수정된 경로
+            .get(`/api/auth`, { params }) // 수정된 경로
             .then((res) => {
                 console.log(res);
                 if (res.data.status === 200) {

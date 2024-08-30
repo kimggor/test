@@ -15,7 +15,7 @@ export default function TotalRoutePage() {
   useEffect(() => {
     if (!localStorage.getItem("id")) return;
     axios
-      .get(`${process.env.NEXT_PUBLIC_LOCAL_URL}/api/content/submit`, {
+      .get(`/api/content/submit`, {
         params: { userId: localStorage.getItem("id") },
       })
       .then((res) => {

@@ -58,9 +58,7 @@ export default function MovieDetailPage({
     if (userProgressCreateDatas) {
       axios
         .post(
-          `${
-            process.env.NEXT_PUBLIC_LOCAL_URL
-          }/api/content/${decodeURIComponent(String(params.movie))}`,
+          `/api/content/${decodeURIComponent(String(params.movie))}`,
           userProgressCreateDatas,
         )
         .then((res) => {

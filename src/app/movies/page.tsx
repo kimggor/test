@@ -10,7 +10,7 @@ export default function MainPage() {
 
   // 영화 정보 가져오기
   useEffect(() => {
-    axios.get(`${process.env.NEXT_PUBLIC_LOCAL_URL}/api/movie`).then((res) => {
+    axios.get(`/api/movie`).then((res) => {
       setMovies(res.data);
     });
   }, []);

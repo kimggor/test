@@ -35,7 +35,7 @@ export default function PlaceMapPage({
     // 경로 저장
     axios
       .post(
-        `${process.env.NEXT_PUBLIC_LOCAL_URL}/api/content/${decodeURIComponent(
+        `/api/content/${decodeURIComponent(
           place,
         )}`,
         userProgressCreateData,
@@ -51,7 +51,7 @@ export default function PlaceMapPage({
     if (!place) return;
     axios
       .get(
-        `${process.env.NEXT_PUBLIC_LOCAL_URL}/api/content/${decodeURIComponent(
+        `/api/content/${decodeURIComponent(
           place,
         )}`,
         {

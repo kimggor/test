@@ -32,7 +32,7 @@ export default function MyPage() {
     };
 
     const handleSecession = async () => {
-        await axios.put(`${process.env.NEXT_PUBLIC_LOCAL_URL}/api/user`, { id: userId }).then(() => {
+        await axios.put(`/api/user`, { id: userId }).then(() => {
             router.push('/');
         });
     };

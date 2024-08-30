@@ -37,7 +37,7 @@ export default function MyRoute() {
   const handleDeleteRoute = () => {
     console.log("경로 삭제");
     axios
-      .delete(`${process.env.NEXT_PUBLIC_LOCAL_URL}/api/content`, {
+      .delete(`/api/content`, {
         params: {
           userSaveRouteId,
         },
@@ -112,9 +112,7 @@ export default function MyRoute() {
         };
         axios
           .patch(
-            `${
-              process.env.NEXT_PUBLIC_LOCAL_URL
-            }/api/content/${decodeURIComponent(selectTitle)}`,
+            `/api/content/${decodeURIComponent(selectTitle)}`,
             updateData,
           )
           .then((res) => {
@@ -137,7 +135,7 @@ export default function MyRoute() {
   useEffect(() => {
     if (!localStorage.getItem("id")) return;
     axios
-      .get(`${process.env.NEXT_PUBLIC_LOCAL_URL}/api/content`, {
+      .get(`/api/content`, {
         params: { userId: localStorage.getItem("id") },
       })
       .then((res) => {

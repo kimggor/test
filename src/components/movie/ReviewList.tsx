@@ -28,9 +28,7 @@ export default function ReviewList({ movieTitle }: { movieTitle: string }) {
   const getMovieReview = () => {
     axios
       .get(
-        `${
-          process.env.NEXT_PUBLIC_LOCAL_URL
-        }/api/review?movieTitle=${decodeURIComponent(movieTitle)}`,
+        `/api/review?movieTitle=${decodeURIComponent(movieTitle)}`,
       )
       .then((res) => {
         setReviewList(res.data.data);

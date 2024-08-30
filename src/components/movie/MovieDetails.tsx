@@ -30,7 +30,7 @@ export default function MovieDetails({
   useEffect(() => {
     axios
       .get(
-        `${process.env.NEXT_PUBLIC_LOCAL_URL}/api/movie/${decodeURIComponent(
+        `/api/movie/${decodeURIComponent(
           movie as string,
         )}`,
         {

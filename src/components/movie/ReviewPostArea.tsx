@@ -36,7 +36,7 @@ export default function ReviewPostArea({
       movieTitle: movieTitle,
     };
     axios
-      .post(`${process.env.NEXT_PUBLIC_LOCAL_URL}/api/review`, reqReview)
+      .post(`/api/review`, reqReview)
       .then((res) => {
         handleStarInitial();
         setReviewText("");
